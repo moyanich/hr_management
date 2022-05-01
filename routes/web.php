@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\JobsController;
 //use App\Http\Controllers\Admin\EmployeeEducationsController;
 
 
@@ -40,7 +41,7 @@ require __DIR__.'/auth.php';
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard.index');
-
+    Route::resource('/jobs', JobsController::class)->middleware('auth.admin'); 
 
     //Route::get('/shop', [ProductController::class, 'index'])->name('shop');
     //Route::get('/shop/{id}', [ProductController::class, 'show'])->name('shop.product');
