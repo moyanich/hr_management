@@ -15,7 +15,7 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $jobs = Jobs::select(['id', 'name', 'description'])->orderBy('id', 'asc')->paginate(20);
         return view('admin.jobs.index', compact('jobs'));

@@ -41,7 +41,7 @@ require __DIR__.'/auth.php';
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard.index');
-    Route::resource('/jobs', JobsController::class)->middleware('auth.admin'); 
+    Route::resource('/jobs', JobsController::class); 
 
     //Route::get('/shop', [ProductController::class, 'index'])->name('shop');
     //Route::get('/shop/{id}', [ProductController::class, 'show'])->name('shop.product');
