@@ -11,10 +11,7 @@
             @if (Route::has('login'))
                 
                 @auth
-                    <li><a href="{{ url('/dashboard') }}" class="">Dashboard</a></li>
-                    <li><a href="{{ route('admin.dashboard') }}" class="">Dashboard f</a></li>
-
-                    
+                    <li><a href="{{ route('admin.dashboard.index') }}" class="">Dashboard</a></li>
                 @else
                     <li><a href="{{ route('login') }}" class="mr-2">Log in</a></li>
 

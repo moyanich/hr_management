@@ -39,11 +39,11 @@ require __DIR__.'/auth.php';
 */
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
 
-
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard.index');
 
 
     //Route::get('/shop', [ProductController::class, 'index'])->name('shop');
     //Route::get('/shop/{id}', [ProductController::class, 'show'])->name('shop.product');
 
 });
+
