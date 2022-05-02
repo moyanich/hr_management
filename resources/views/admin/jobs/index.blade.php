@@ -21,7 +21,7 @@
     <div class="w-10/12 py-10 mx-auto">
         <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow rounded border-0 mb-4">
             <div class="block w-full overflow-x-auto">
-                <table class="table table-compact w-full items-center w-full bg-transparent border-collapse">
+                <table id="jobs-table" class="table table-compact w-full items-center w-full bg-transparent border-collapse">
                     <thead class="bg-gray-200">
                         <tr>
                             <th scope="col" class="px-6 bg-blueGray-50 text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
