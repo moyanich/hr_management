@@ -7,3 +7,35 @@
     background-size: cover;
 
 }
+
+.dataTables_wrapper {
+    background: #FFf;
+    padding: 40px;
+}
+
+.dataTable {
+    padding-top: 20px;
+    background: #fff;
+}
+
+.table :where(:first-child) :where(:first-child) :where(th, td):first-child {
+    border-top-left-radius: 0;
+}
+
+.dataTables_info {
+    font-size: 14px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, 
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #1d4ed8 !important;
+    color: #fff !important;
+}
+
+.dataTables_wrapper .dataTables_length, 
+.dataTables_wrapper .dataTables_filter, 
+.dataTables_wrapper .dataTables_info, 
+.dataTables_wrapper .dataTables_processing, 
+.dataTables_wrapper .dataTables_paginate {
+    font-size: 14px;
+}
