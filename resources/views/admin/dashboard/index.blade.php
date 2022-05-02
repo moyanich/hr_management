@@ -7,6 +7,17 @@
 
 
 
+    <div class="stats shadow">
+  
+      <div class="stat">
+        <div class="stat-title">Total Page Views</div>
+        <div class="stat-value">89,400</div>
+        <div class="stat-desc">21% more than last month</div>
+      </div>
+      
+    </div>
+
+
     <div class="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
         <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
            <div class="flex items-center justify-between mb-4">

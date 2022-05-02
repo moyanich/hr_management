@@ -15,7 +15,7 @@ class JobsFactory extends Factory
     {
         return [
             'name' => $this->faker->jobTitle,
-            'description' => $this->faker->text($maxNbChars = 200),
+            'description' => $this->faker->text($maxNbChars = 50),
         ];
     }
 }
