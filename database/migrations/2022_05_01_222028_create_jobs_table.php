@@ -17,6 +17,7 @@ class CreateJobsTable extends Migration
             $table->id();
             $table->string('name', '50');
             $table->longText('description');
+            $table->string('file_path')->nullable();
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

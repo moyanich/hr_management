@@ -59,11 +59,7 @@ class JobsController extends Controller
      */
     public function create()
     {
-        //
-
         return view('admin.jobs.create');
-
-
     }
 
     /**
@@ -74,7 +70,41 @@ class JobsController extends Controller
      */
     public function store(StoreJobsRequest $request)
     {
-        //
+        //$name = $request->file('file')->getClientOriginalName();
+        $name = $request->file('file')->hashName();
+        $path = $request->file('file')->store('public/files');
+
+
+        $job = new Jobs;
+        $job->name = $request->input('name');
+        $job->description = $request->input('description');
+        $job->file_path = $name;
+        
+
+
+
+        /*if ($request->file('file')) {
+            dd($request->file('file'));
+
+
+            $fileName = $request->file('file'); 
+
+            $path = $request->file->storeAs(
+                'files','filename.jpg'
+            );
+
+            $job->jobfile = $fileName;
+        } 
+
+        if($request->hasFile('file')) {
+            $fileName = auth()->id() . '_' . time() . '.'. $request->file->extension();  
+            $request->file->storeAs('files', $fileName, 'public');
+            $job->jobfile = $fileName;
+        }  */
+        
+        $job->save();
+        
+       return redirect()->route('admin.jobs.index')->with('success', 'New Job - ' . $job->name . ' created successfully');
     }
 
     /**

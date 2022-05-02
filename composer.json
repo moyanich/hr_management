@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.5",
+        "laravelcollective/html": "^6.3",
         "yajra/laravel-datatables-oracle": "^9.19"
     },
     "require-dev": {
