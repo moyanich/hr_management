@@ -27,10 +27,7 @@
                             <th scope="col" class="px-6 bg-secondary text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                 {{ __('Name') }}
                             </th>
-                            <th scope="col" class="px-6 bg-secondary text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                {{ __('Description') }}
-                            </th>
-                            
+                           
                             <th scope="col" class="px-6 bg-secondary text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                 {{ __('Actions') }}
                             </th>
@@ -63,7 +60,6 @@
             ajax: "{{ route('admin.jobs.index') }}",
             columns: [
                 { data: 'name', name: 'name' },
-                { data: 'description', name: 'description' },
                 {
                     data: 'action', 
                     name: 'action', 

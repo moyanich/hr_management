@@ -70,25 +70,8 @@
     
                 {!! Form::close() !!}
             </div>
-
         </div>
-
-
     </div>
-
-
-
-
-
-
-
-     {{-- Content --}}
-   
-
     {{-- End Content --}}
-
-
-
-
 
 </x-app-layout>
