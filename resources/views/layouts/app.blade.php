@@ -23,7 +23,7 @@
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
-            <div class="max-w-7xl mx-auto">
+            <div class="max-w-7xl mx-auto px-4">
 
                 <!-- Page Heading -->
                 <div class="mt-4 mx-2 flex justify-between items-center">
