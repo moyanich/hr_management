@@ -1,5 +1,37 @@
 <x-app-layout>
     <x-slot name="header">
+        <div class="">
+            <h3 class="text-gray-600 text-sm flex">
+                <a href="" class="text-green-600 flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                      </svg>
+                    Home
+                </a>
+                 / Dashboard v1
+            </h3>
+            <div>
+                <h1 class="text-2xl mt-1 font-medium"> {{ __('Job Titles') }}</h1>
+            </div>
+        </div>
+    
+        <div class="md:pt-0 pt-4">
+            <button class="px-4 py-2 border text-sm mx-1 border-transparent rounded bg-green-500 text-white hover:bg-green-400 focus:outline-none focus:border-green-500 focus:shadow-outline-green active:bg-green-500 transition duration-150 ease-in-out inline-flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                  </svg>
+                Publish
+            </button>
+            <button class="px-4 py-2 border text-sm mx-1 rounded bg-white hover:bg-gray-100 focus:outline-none focus:shadow-outline-white active:bg-white transition duration-150 ease-in-out inline-flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                  </svg>
+                Create
+            </button>
+        </div>
+    
+
+        {{--  
         <div class="flex justify-between">
             <h2 class="font-bold text-xl text-gray-800 leading-tight uppercase items-center">
                 {{ __('Job Titles') }}
@@ -12,34 +44,45 @@
                     {{ __('New Job') }}
                 </a>
             </div>
-        </div>
+        </div>--}}
     </x-slot>
     
     <x-messages />
 
     {{-- Content --}}
-    <div class="w-10/12 py-10 mx-auto">
-        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow rounded border-0 mb-4">
+
+    <div class="card w-full bg-white text-primary-content">
+        <div class="card-body">
+          
+            <table id="jobTable" class="table table-compact w-full items-center w-full bg-transparent border-collapse jobs-datatable cell-border">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th scope="col" class="px-6 bg-secondary text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                            {{ __('Name') }}
+                        </th>
+                       
+                        <th scope="col" class="px-6 bg-secondary text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                            {{ __('Actions') }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                
+            </table>
+
+
+        </div>
+      </div>
+
+
+  
+        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow rounded border-0 mb-4 ">
             <div class="block w-full overflow-x-auto">
-                <table id="jobTable" class="table table-compact w-full items-center w-full bg-transparent border-collapse jobs-datatable cell-border">
-                    <thead class="bg-gray-200">
-                        <tr>
-                            <th scope="col" class="px-6 bg-secondary text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                {{ __('Name') }}
-                            </th>
-                           
-                            <th scope="col" class="px-6 bg-secondary text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                {{ __('Actions') }}
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    
-                </table>
+               
             </div>
         </div>
-    </div>
+    
     {{-- End Content --}}
    
     
