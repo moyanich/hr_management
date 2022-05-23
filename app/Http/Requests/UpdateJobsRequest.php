@@ -13,7 +13,7 @@ class UpdateJobsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,22 @@ class UpdateJobsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     * 
+     * 
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'A job title is required',
+            'description.required' => 'A description is required',
+            'file' => 'file|mimes:jpg,jpeg,png,doc,docx,csv,xlsx,xls,txt,pdf'
         ];
     }
 }

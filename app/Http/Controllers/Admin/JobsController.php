@@ -83,26 +83,6 @@ class JobsController extends Controller
         $job->description = $request->input('description');
         $job->file_path =  $file_name;
         
-
-        /*if ($request->file('file')) {
-            dd($request->file('file'));
-
-
-            $fileName = $request->file('file'); 
-
-            $path = $request->file->storeAs(
-                'files','filename.jpg'
-            );
-
-            $job->jobfile = $fileName;
-        } 
-
-        if($request->hasFile('file')) {
-            $fileName = auth()->id() . '_' . time() . '.'. $request->file->extension();  
-            $request->file->storeAs('files', $fileName, 'public');
-            $job->jobfile = $fileName;
-        }  */
-        
         $job->save();
         
        return redirect()->route('admin.jobs.index')->with('success', 'New Job - ' . $job->name . ' created successfully');
@@ -120,26 +100,29 @@ class JobsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Jobs  $jobs
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Jobs $jobs)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateJobsRequest  $request
      * @param  \App\Models\Jobs  $jobs
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateJobsRequest $request, Jobs $jobs)
+    public function update(UpdateJobsRequest $request, Jobs $job)
     {
-        //
+        $file_name = '';
+
+        if ($request->file('file')) {
+            $file_name = $request->file('file')->hashName();
+            $path = $request->file('file')->store('public/files');
+        }
+
+        $job = Jobs::findOrFail($job->id);
+        $job->name = $request->input('name');
+        $job->description = $request->input('description');
+        $job->file_path =  $file_name;
+
+        $job->save();
+
+        return redirect()->back()->with('success', "Job record for " . $job->name . " updated sucessfully!");
     }
 
     /**
@@ -148,8 +131,10 @@ class JobsController extends Controller
      * @param  \App\Models\Jobs  $jobs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jobs $jobs)
+    public function destroy(Jobs $job)
     {
-        //
+        $job->delete();
+        return redirect()->route('admin.jobs.index')
+            ->with('success', 'Job record for ' . $job->name . ' deleted successfully!');
     }
 }
