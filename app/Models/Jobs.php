@@ -26,7 +26,7 @@ class Jobs extends Model
     protected $fillable = [
         'name',
         'description',
-        'jobfile'
+        'file_path'
     ];
 
 }

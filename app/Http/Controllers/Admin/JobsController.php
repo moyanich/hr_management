@@ -81,7 +81,7 @@ class JobsController extends Controller
         $job = new Jobs;
         $job->name = $request->input('name');
         $job->description = $request->input('description');
-        $job->file_path =  $file_name;
+        $job->file_path = $file_name;
         
         $job->save();
         
@@ -110,18 +110,17 @@ class JobsController extends Controller
     {
         $file_name = '';
 
-        if ($request->file('file')) {
-            $file_name = $request->file('file')->hashName();
-            $path = $request->file('file')->store('public/files');
+        if ($request->file('file_update')) {
+            $file_name = $request->file('file_update')->hashName();
+            $request->file('file_update')->storeAs('files', $file_name, 'public');
         }
 
         $job = Jobs::findOrFail($job->id);
         $job->name = $request->input('name');
         $job->description = $request->input('description');
-        $job->file_path =  $file_name;
-
+        $job->file_path = $file_name;
         $job->save();
-
+        
         return redirect()->back()->with('success', "Job record for " . $job->name . " updated sucessfully!");
     }
 
