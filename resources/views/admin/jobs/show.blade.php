@@ -34,7 +34,7 @@
             <div class="py-3 px-4 border-b flex justify-between items-center">
                 <h2 class="text-lg font-medium text-gray-700"> {{ __('Job Title: ') }}</h2>
                 @if($job->file_path)
-                <a href="{{ asset('storage/files/'.$job->file_path)}}" class="btn btn-sm" target="_blank">View Existing Job File</a>
+                <a href="{{ asset('storage/files/'.$job->file_path)}}" class="rounded-none bg-blue-500 px-2 py-2 text-white text-sm font-bold" target="_blank" role="button">View Existing Job File</a>
             @endif
             </div>
             <div class="p-3 text-gray-600">

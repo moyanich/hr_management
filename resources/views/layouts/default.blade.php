@@ -8,9 +8,8 @@
 </head>
 
 <body>
-	@include('includes.navbar')
 
-	@include('includes.header')
+	@include('includes.navbar')
 
 	<div id="main" class="row bg-white">
 
@@ -23,7 +22,6 @@
 		@include('includes.footer')
 
 	</footer>
-
 
 </body>
 

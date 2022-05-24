@@ -2,6 +2,78 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track{
+    background: #2D3748;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #CBD5E0;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #718096;
+}
+
+ /*
+* DataTables
+*/
+.dataTable {
+    padding-top: 20px;
+    @apply text-xs;
+}
+
+.dataTables_wrapper select {
+    background-size: 1em;
+    background-position-x: 20px;
+}
+
+/*
+.dataTables_length,
+.dataTables_filter,
+.dataTables_info,
+.dataTables_paginate {
+    @apply p-4;
+    @apply text-sm;
+}
+
+.dataTables_info,
+.dataTables_paginate {
+    @apply pt-7;
+}
+
+.dataTables_wrapper select {
+    background-size: 1em;
+    background-position-x: 20px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    @apply px-4 py-2 border text-sm font-medium !important;
+    background: rgba(255, 255, 255, var(--tw-bg-opacity)) !important;
+}
+
+.pagination span[aria-current='page'] > span,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    @apply border-blue-200 text-white px-4 py-2 border text-sm font-medium !important;
+    background: rgba(17, 24, 39, var(--tw-bg-opacity)) !important;
+}
+
+.pagination span > a:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    @apply text-white !important;
+    background: rgba(17, 24, 39, var(--tw-bg-opacity)) !important;
+}
+ 
+
+*/
+
+
+
+
 .myhero {
     background: url('https://images.pexels.com/photos/1367276/pexels-photo-1367276.jpeg?cs=srgb&dl=pexels-rebrand-cities-1367276.jpg&fm=jpg') center center no-repeat;
     background-size: cover;
@@ -13,10 +85,7 @@
     padding: 40px;
 }
 
-.dataTable {
-    padding-top: 20px;
-    background: #fff;
-}
+
 
 .table :where(:first-child) :where(:first-child) :where(th, td):first-child,
 .table :where(:first-child) :where(:first-child) :where(th, td):last-child {

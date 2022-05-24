@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="emerald">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,31 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
+
+        <div x-data="{ sidebarOpen: false }" class="flex h-screen font-roboto">
+            @include('includes.sidebar')
+            
+            <div class="flex-1 flex flex-col overflow-hidden">
+                @include('includes.header')
+
+                <main class="flex-1 overflow-x-hidden overflow-y-auto">
+                    <div class="container mx-auto">
+                        <!-- Page Heading -->
+                        <div class="mt-4 mx-2 flex justify-between items-center">
+                            {{ $header }}
+                        </div>
+
+                        <!-- Page Content -->
+                        <div class="mt-3 w-full">
+                            {{ $slot }}
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+
+        {{--  
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
@@ -37,7 +62,7 @@
                     </main>
                 </div>
             </div>
-        </div>
+        </div>--}} 
 
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

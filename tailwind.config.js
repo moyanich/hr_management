@@ -1,5 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
-
+const colors = require('tailwindcss/colors');
 
 module.exports = {
     content: [
@@ -9,9 +9,12 @@ module.exports = {
     ],
 
     theme: {
+        colors: {
+            ...colors,
+        },
         extend: {
             fontFamily: {
-                sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+                sans: ['Segoe UI','Fira Sans','Droid Sans','Helvetica Neue', ...defaultTheme.fontFamily.sans],
             },
         },
         fontSize: {
@@ -30,7 +33,7 @@ module.exports = {
         },
     },
 
-    daisyui: {
+   /* daisyui: {
         themes: [
             {
                 mytheme: {
@@ -46,10 +49,10 @@ module.exports = {
                 },
             },
         ],
-    },
+    }, */
 
     plugins: [
         require('@tailwindcss/forms'),
-        require('daisyui'),
+       /*  require('daisyui'), */
     ],
 };
