@@ -29,66 +29,57 @@
     <x-messages />
 
     {{-- Content --}}
-    <div class="w-full">
-        <div class="bg-white border rounded mx-2 my-4">
-            <div class="py-3 px-4 border-b flex justify-between items-center">
-                <h2 class="text-lg font-medium text-gray-700"> {{ __('Job Title: ') }}</h2>
-                @if($job->file_path)
-                <a href="{{ asset('storage/files/'.$job->file_path)}}" class="rounded-none bg-blue-500 px-2 py-2 text-white text-sm font-bold" target="_blank" role="button">View Existing Job File</a>
-            @endif
-            </div>
-            <div class="p-3 text-gray-600">
-                {!! Form::open(['action' => ['App\Http\Controllers\Admin\JobsController@update', $job->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                    <div class="flex flex-wrap">
-                        <div class="w-full p-2">
-                            {{ Form::label('name', 'Job Title', ['class' => 'block text-sm font-bold capitalize text-blueGray-600 mb-2']) }}
+    <div class="bg-white border rounded mx-2 my-4">
+        <div class="py-3 px-4 border-b flex justify-between items-center">
+            <h2 class="text-lg font-medium text-gray-700"> {{ __('Job Title: ') }}</h2>
+            @if($job->file_path)
+            <a href="{{ asset('storage/files/'.$job->file_path)}}" class="rounded-none bg-blue-500 px-2 py-2 text-white text-sm font-bold" target="_blank" role="button">View Existing Job File</a>
+        @endif
+        </div>
+        <div class="p-3 text-gray-600">
+            {!! Form::open(['action' => ['App\Http\Controllers\Admin\JobsController@update', $job->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                <div class="flex flex-wrap">
+                    <div class="w-full p-2">
+                        {{ Form::label('name', 'Job Title', ['class' => 'block text-sm font-bold capitalize text-blueGray-600 mb-2']) }}
 
-                            {{ Form::text('name', $job->name, ['class' => 'focus:border-blue-400 focus:ring-2 focus:ring-blue-200 focus:outline-none w-full text-base placeholder-gray-400 border border-gray-300 rounded py-1.5 px-3']) }}
-                       
-                            @error('name')
+                        {{ Form::text('name', $job->name, ['class' => 'focus:border-blue-400 focus:ring-2 focus:ring-blue-200 focus:outline-none w-full text-base placeholder-gray-400 border border-gray-300 rounded py-1.5 px-3']) }}
+                    
+                        @error('name')
+                            <p class="text-xs text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="w-full p-2">
+                        {{ Form::label('name', 'Job Description', ['class' => 'block text-sm font-bold capitalize text-blueGray-600 mb-2']) }}
+
+                        {{ Form::textarea('description', $job->description, ['class' => 'ckeditor focus:border-blue-400 focus:ring-2 focus:ring-blue-200 focus:outline-none w-full text-base placeholder-gray-400 border border-gray-300 rounded py-1.5 px-3']) }}
+                    
+                        @error('description')
+                            <p class="text-xs text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="w-full p-2">
+                        <div class="relative w-full mb-3">
+                            {{ Form::label('file', 'Job Specification', ['class' => 'block text-sm font-bold capitalize text-blueGray-600 mb-2']) }}
+    
+                            <input type="file" name="file_update" class="border-0 px-3 py-3 text-blueGray-600 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" accept=".jpg,.jpeg,.bmp,.png,.gif,.doc,.docx,.csv,.rtf,.xlsx,.xls,.txt,.pdf,.zip">
+    
+                            @error('file_update')
                                 <p class="text-xs text-red-600">{{ $message }}</p>
                             @enderror
-                        </div>
-                        <div class="w-full p-2">
-                            {{ Form::label('name', 'Job Description', ['class' => 'block text-sm font-bold capitalize text-blueGray-600 mb-2']) }}
-
-                            {{ Form::textarea('description', $job->description, ['class' => 'ckeditor focus:border-blue-400 focus:ring-2 focus:ring-blue-200 focus:outline-none w-full text-base placeholder-gray-400 border border-gray-300 rounded py-1.5 px-3']) }}
-                       
-                            @error('description')
-                                <p class="text-xs text-red-600">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="w-full p-2">
-                            <div class="relative w-full mb-3">
-                                {{ Form::label('file', 'Job Specification', ['class' => 'block text-sm font-bold capitalize text-blueGray-600 mb-2']) }}
-        
-                                <input type="file" name="file_update" class="border-0 px-3 py-3 text-blueGray-600 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" accept=".jpg,.jpeg,.bmp,.png,.gif,.doc,.docx,.csv,.rtf,.xlsx,.xls,.txt,.pdf,.zip">
-        
-                                @error('file_update')
-                                    <p class="text-xs text-red-600">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="w-full p-2">
-                            <button class="px-4 py-2 text-sm border border-transparent rounded bg-green-500 text-white hover:bg-green-400 focus:outline-none focus:border-green-500 focus:shadow-outline-green active:bg-green-500 transition duration-150 ease-in-out inline-flex items-center">
-                                {{ __('Update') }}
-                            </button>
                         </div>
                     </div>
-                {{Form::hidden('_method', 'PUT') }}
-                {!! Form::close() !!}
-            </div>
+                    <div class="w-full p-2">
+                        <button class="px-4 py-2 text-sm border border-transparent rounded bg-green-500 text-white hover:bg-green-400 focus:outline-none focus:border-green-500 focus:shadow-outline-green active:bg-green-500 transition duration-150 ease-in-out inline-flex items-center">
+                            {{ __('Update') }}
+                        </button>
+                    </div>
+                </div>
+            {{Form::hidden('_method', 'PUT') }}
+            {!! Form::close() !!}
         </div>
     </div>
     {{-- End Content --}}
-
-
-    <!-- The button to open modal -->
-
-
-
-
 
 </x-app-layout>
 
@@ -127,9 +118,9 @@
                 <!-- Form -->
                 {!! Form::open(['action' => ['App\Http\Controllers\Admin\JobsController@destroy', $job->id], 'method' => 'POST']) !!}
 
-                {{ Form::submit('Delete', ['class' => 'w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm']) }}
+                    {{ Form::submit('Delete', ['class' => 'w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm']) }}
 
-                {{Form::hidden('_method', 'DELETE') }}
+                    {{Form::hidden('_method', 'DELETE') }}
                 {!! Form::close() !!}
               
                 <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="toggleModal('job-modal')">
@@ -139,3 +130,7 @@
         </div>
     </div>
 </div>
+
+@push('child-scripts')
+@include('partials.js.editor')
+@endpush

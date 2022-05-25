@@ -16,7 +16,7 @@ class SalaryScalesFactory extends Factory
         return [
 
             'series' => $this->faker->jobTitle,
-            'group' => $this->faker->word,
+            'group'  => $this->faker->word,
             'scale1' => $this->faker->randomFloat,
             'scale2' => $this->faker->randomFloat,
             'scale3' => $this->faker->randomFloat,

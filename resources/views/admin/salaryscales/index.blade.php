@@ -27,26 +27,59 @@
 
     {{-- Content --}}
     <div class="w-full">
-        <div class="bg-white border rounded mx-2 my-4">
-            <table id="jobTable" class="table table-compact w-full items-center w-full bg-transparent border-collapse jobs-datatable cell-border">
-                <thead class="bg-sky-50">
-                    <tr>
-                        <th scope="col" class="px-6 bg-sky-50 text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                            {{ __('Series') }}
-                        </th>
-                        <th scope="col" class="px-6 bg-sky-50 text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                            {{ __('Segments') }}
-                        </th>
-                        <th scope="col" class="px-6 bg-sky-50 text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                            {{ __('Actions') }}
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <div class="mx-auto">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table id="salaryTable"  class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                {{ __('Group') }}
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                {{ __('Code') }}
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Category
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Price
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                <span class="sr-only">Edit</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            @foreach ( $salaries as $salary )
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                        {{ $salary->series }}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        {{ $salary->group }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        Laptop
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <a href="{{ route('admin.salaryscales.show', $salary->id ) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                        @endforeach
+
+                    </tbody>
+                </table>
+                <div class="py-5 px-4">
+                    {!! $salaries->render() !!}
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
     {{-- End Content --}}
    
 </x-app-layout>

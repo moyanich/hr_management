@@ -21,27 +21,25 @@
     <x-messages />
 
     {{-- Content --}}
-    <div class="w-full">
-        <div class="bg-white border rounded mx-2 my-4">
-            <table id="jobTable" class="table table-compact w-full items-center w-full bg-transparent border-collapse jobs-datatable cell-border">
-                <thead class="bg-blueGray-50">
+    <div class=" mx-auto">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table id="jobTable" class="w-full text-sm text-left text-gray-500 dark:text-gray-400 jobs-datatable">
+
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 bg-blueGray-50 text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        <th scope="col" class="px-6 py-3">
                             {{ __('Name') }}
                         </th>
-                       
-                        <th scope="col" class="px-6 bg-blueGray-50 text-black align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                            {{ __('Actions') }}
+                        <th scope="col" class="px-6 py-3">
+                            <span class="sr-only">Edit</span>
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                </tbody>
+                <tbody></tbody>
             </table>
         </div>
-      </div>
+    </div>
     {{-- End Content --}}
-   
 </x-app-layout>
 
  

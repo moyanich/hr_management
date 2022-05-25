@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSalaryScalesRequest;
 use App\Http\Requests\UpdateSalaryScalesRequest;
 use App\Models\SalaryScales;
+use Illuminate\Http\Request;
 
 class SalaryScalesController extends Controller
 {
@@ -14,9 +15,13 @@ class SalaryScalesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.salaryscales.index');
+        //$salaries = SalaryScales::all(); 
+        // return view('admin.salaryscales.index')->with('salaries', $salaries);
+        $salaries = SalaryScales::select(['id', 'series', 'group'])->orderBy('id', 'asc')->paginate(10); 
+        return view('admin.salaryscales.index', compact('salaries'))
+        ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -26,7 +31,7 @@ class SalaryScalesController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -46,9 +51,10 @@ class SalaryScalesController extends Controller
      * @param  \App\Models\SalaryScales  $salaryScales
      * @return \Illuminate\Http\Response
      */
-    public function show(SalaryScales $salaryScales)
+    public function show($id)
     {
-        //
+        $salaryScale = SalaryScales::find($id);
+        return view('admin.salaryscales.show', ['salaryScale' => $salaryScale]);
     }
 
     /**
@@ -57,9 +63,9 @@ class SalaryScalesController extends Controller
      * @param  \App\Models\SalaryScales  $salaryScales
      * @return \Illuminate\Http\Response
      */
-    public function edit(SalaryScales $salaryScales)
+    public function edit(SalaryScales $salaryScale)
     {
-        //
+        return view('admin.salaryscales.edit');
     }
 
     /**
@@ -82,6 +88,8 @@ class SalaryScalesController extends Controller
      */
     public function destroy(SalaryScales $salaryScales)
     {
-        //
+        $salaryScales->delete();
+        return redirect()->route('admin.salaryscales.index')
+            ->with('success', 'Salary record for ' . $salaryScales->series . ' deleted successfully!');
     }
 }
