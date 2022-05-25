@@ -7,21 +7,26 @@
     height: 7px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
     background: #2D3748;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background: #CBD5E0;
 }
 
-::-webkit-scrollbar-thumb:hover{
+::-webkit-scrollbar-thumb:hover {
     background: #718096;
 }
 
- /*
-* DataTables
-*/
+
+.table :where(thead, tfoot) :where(th, td) {
+    @apply bg-sky-50;
+}
+
+
+/* DataTables */
+
 .dataTable {
     padding-top: 20px;
     @apply text-xs;
@@ -81,7 +86,6 @@
 }
 
 .dataTables_wrapper {
-    background: #FFf;
     padding: 40px;
 }
 
@@ -92,9 +96,7 @@
     border-top-left-radius: 0;
 }
 
-.table :where(thead, tfoot) :where(th, td) {
-    background-color: #f3f3f3;
-}
+
 
 .dataTables_info {
     font-size: 14px;

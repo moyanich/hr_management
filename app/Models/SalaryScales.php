@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Employees extends Model
+class SalaryScales extends Model
 {
     use HasFactory;
-   
+
     // Table Name
-    protected $table = 'employees';
-    
+    protected $table = 'salary_scales';
+
     // Primary Key
     public $primaryKey = 'id';
 
@@ -24,10 +24,16 @@ class Employees extends Model
      * @var string[]
      */
     protected $fillable = [
-       /*  'name',
-        'description',
-        'file_path' */
+        'series',
+        'group',
+        'scale1',
+        'scale2',
+        'scale3',
+        'scale4',
+        'scale5',
+        'scale6',
+        'scale7',
+        'scale8',
     ];
 
-   
 }

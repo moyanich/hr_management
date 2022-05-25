@@ -28,7 +28,7 @@
                 @include('includes.header')
 
                 <main class="flex-1 overflow-x-hidden overflow-y-auto">
-                    <div class="container mx-auto">
+                    <div class="container mx-auto px-4">
                         <!-- Page Heading -->
                         <div class="mt-4 mx-2 flex justify-between items-center">
                             {{ $header }}
