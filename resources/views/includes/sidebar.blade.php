@@ -28,12 +28,50 @@
             <span class="mx-3">{{ __('Employee Management') }}</span>
         </x-nav-link>
 
-        <x-nav-link :href="route('admin.jobs.index')" :active="request()->routeIs('admin.jobs.index')">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <span class="mx-3">{{ __('Job Management') }}</span>
-        </x-nav-link>
+       
+
+        <div @click.away="open = false" class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="flex items-center text-sm capitalize text-white px-1 py-3 mt-4 block hover:text-lightBlue-600 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg> 
+                <span class="mx-3">{{ __('Job Management') }}</span>
+                <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-0.5 ml-1 transition-transform duration-200 transform md:-mt-0.5">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="relative right-0 w-full mt-2 origin-top-right shadow-lg">
+                <div class="bg-gray-800 shadow dark-mode:bg-gray-800">
+
+                    <x-dropdown-link :href="route('admin.jobs.index')" :active="request()->routeIs('admin.jobs.index')">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"  clip-rule="evenodd" />
+                        </svg>
+                        <span class="mx-2">{{ __('Job Titles') }}</span>
+                    </x-dropdown-link>
+
+                    <span class="block border-b border-gray-500"></span>
+
+                    <x-dropdown-link :href="route('admin.jobs.index')" :active="request()->routeIs('admin.jobs.index')">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="mx-2">{{ __('User Management') }}</span>
+                    </x-dropdown-link>
+
+                    <x-dropdown-link :href="route('admin.jobs.index')" :active="request()->routeIs('admin.jobs.index')">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />
+                        </svg>
+                        <span class="mx-2">{{ __('Role Management') }}</span>
+                    </x-dropdown-link>
+                
+                    
+                </div>
+            </div>
+        </div>
+
+
 
         {{-- Employee Menu --}}
         {{-- 
@@ -50,7 +88,7 @@
 
         @can('logged-in')
             @can('admin')
-                <x-nav-link :href="route('admin.departments.index')" :active="request()->routeIs('admin.departments.index')">
+                <x-nav-link :href="route('admin.jobs.index')" :active="request()->routeIs('admin.jobs.index')">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd" />
                     </svg>
@@ -71,14 +109,14 @@
                     <span class="mx-3">{{ __('Leave Management') }}</span>
                 </x-nav-link>
 
-                <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
+                <x-nav-link :href="route('admin.jobs.index')" :active="request()->routeIs('admin.jobs.index')">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
                     <span class="mx-3">{{ __('User Management') }}</span>
                 </x-nav-link>
 
-                <x-nav-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.roles.index')">
+                <x-nav-link :href="route('admin.jobs.index')" :active="request()->routeIs('admin.jobs.index')">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>

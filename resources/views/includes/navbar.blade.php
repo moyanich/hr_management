@@ -4,12 +4,11 @@
         <a href="/" class="btn btn-ghost normal-case text-xl">AttendZ</a>
     </div>
     <div class="flex-none">
-        <ul class="menu menu-horizontal p-0">
+        <ul class="menu menu-horizontal p-0 flex">
             <li><a href="/">Home</a></li>
             <li><a href="">About</a></li>
 
             @if (Route::has('login'))
-                
                 @auth
                     <li><a href="{{ route('admin.dashboard.index') }}" class="">Dashboard</a></li>
                 @else
@@ -19,7 +18,6 @@
                         <li><a href="{{ route('register') }}">Register</a></li>
                     @endif
                 @endauth
-                
             @endif
            
         </ul>
