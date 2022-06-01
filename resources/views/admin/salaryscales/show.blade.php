@@ -129,13 +129,11 @@
    function editScale() {
        $element = document.querySelector('#newScale');
         if($element.classList.contains('hidden')) {
-                $element.classList.remove('hidden');
-                $element.classList.add('visible');
+            $element.classList.remove('hidden');
+            $element.classList.add('visible');
         } else if ( $element.classList.contains('visible')) {
             $element.classList.add('hidden');
-                $element.classList.remove('visible');
+            $element.classList.remove('visible');
         }
-       
-   
     }
 </script>
