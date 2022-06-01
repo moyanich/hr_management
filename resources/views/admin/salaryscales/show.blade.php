@@ -4,7 +4,7 @@
             <x-breadcrumbs></x-breadcrumbs> 
     
             <div>
-                <h1 class="text-2xl mt-1 font-medium">{{ __('Edit Salary - ') . $salaryScale->group  }}</h1>
+                <h1 class="text-2xl mt-1 font-medium">{{ __('Edit Salary Group - ') . $salaryScale->series  }}</h1>
             </div>
         </div>
         <div class="md:pt-0 pt-4">
@@ -36,32 +36,32 @@
                             <th scope="col" class="px-6 py-3">
                                 {{ __('Group') }}
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col text-center" class="px-6 py-3">
                                 {{ __('Code') }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                {{ __('Scale 1') }}
+                                {{ __('1') }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                {{ __('Scale 2') }}
+                                {{ __('2') }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                {{ __('Scale 3') }}
+                                {{ __('3') }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                {{ __('Scale 4') }}
+                                {{ __('4') }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                {{ __('Scale 5') }}
+                                {{ __('5') }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                {{ __('Scale 6') }}
+                                {{ __('6') }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                {{ __('Scale 7') }}
+                                {{ __('7') }}
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                {{ __('Scale 8') }}
+                                {{ __('8') }}
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 <span class="sr-only">Edit</span>
@@ -71,9 +71,9 @@
                     <tbody>
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
 
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 {{ $salaryScale->series }}
-                            </th>
+                            </td>
                             <td class="px-6 py-4">
                                 {{ strtoupper($salaryScale->group) }}
                             </td>
