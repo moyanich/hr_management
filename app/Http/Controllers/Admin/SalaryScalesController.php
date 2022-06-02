@@ -75,9 +75,16 @@ class SalaryScalesController extends Controller
      * @param  \App\Models\SalaryScales  $salaryScales
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSalaryScalesRequest $request, SalaryScales $salaryScales)
+    public function update(UpdateSalaryScalesRequest $request, $id)
     {
-        //
+
+        $salary = SalaryScales::findOrFail($id);
+       
+        //$real_integer = filter_var($num, FILTER_SANITIZE_NUMBER_INT);
+        
+        $salary->save();
+        
+        return redirect()->back()->with('success', "Salary record for " . $salary->series . " updated sucessfully!");
     }
 
     /**
