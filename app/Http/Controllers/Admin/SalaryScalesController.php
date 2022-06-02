@@ -80,8 +80,15 @@ class SalaryScalesController extends Controller
 
         $salary = SalaryScales::findOrFail($id);
        
-        //$real_integer = filter_var($num, FILTER_SANITIZE_NUMBER_INT);
-        
+        $salary->scale1 = formatNumber($request->input('scale1'));
+        $salary->scale2 = formatNumber($request->input('scale2'));
+        $salary->scale3 = formatNumber($request->input('scale3'));
+        $salary->scale4 = formatNumber($request->input('scale4'));
+        $salary->scale5 = formatNumber($request->input('scale5'));
+        $salary->scale6 = formatNumber($request->input('scale6'));
+        $salary->scale7 = formatNumber($request->input('scale7'));
+        $salary->scale8 = formatNumber($request->input('scale8'));
+
         $salary->save();
         
         return redirect()->back()->with('success', "Salary record for " . $salary->series . " updated sucessfully!");

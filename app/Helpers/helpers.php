@@ -15,6 +15,19 @@ if(! function_exists('formatCurrency')) {
     }
 }
 
+/**
+ * Convert Output of number_format back to number
+ * 
+ * @return response()
+ */
+if(! function_exists('formatNumber')) {
+    function formatNumber($str) {
+        return filter_var($str, FILTER_SANITIZE_NUMBER_INT);
+    }
+}
+
+
+
 /*
 if(! function_exists('hyphenate')) {
     function hyphenate($str) {
